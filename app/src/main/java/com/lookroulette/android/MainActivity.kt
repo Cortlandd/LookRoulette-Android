@@ -2,17 +2,17 @@ package com.lookroulette.android
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.lookroulette.android.content.LooksContent
 import com.lookroulette.android.fragments.HomeFragment
 import com.lookroulette.android.fragments.LooksFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LooksFragment.OnListFragmentInteractionListener {
 
     var homeFragment: Fragment = HomeFragment()
     var looksFragment: Fragment = LooksFragment()
@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
         var id = item?.itemId
 
         return super.onOptionsItemSelected(item)
+
+    }
+
+    override fun onListFragmentInteraction(item: LooksContent.LookItem?) {
 
     }
 }

@@ -3,4 +3,15 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="transaction_horizontal_margin">16dp</dimen>
+    <dimen name="transaction_vertical_margin">16dp</dimen>
+    <dimen name="row_padding_vertical">10dp</dimen>
+    <dimen name="toast_text_size">16dp</dimen>
+    <dimen name="toast_offset">70dp</dimen>
+    <dimen name="toolbar_text_size">20sp</dimen>
+    <dimen name="card_title_size">16sp</dimen>
+    <dimen name="min_button_width">25dp</dimen>
+    <dimen name="custom_view_padding">15dp</dimen>
+    <dimen name="bottom_sheet_icon_size">55dp</dimen>
+    <dimen name="bottom_sheet_provider_margin">5dp</dimen>
 </resources>

@@ -2,9 +2,9 @@ package com.lookroulette.android.fragments
 
 
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -13,21 +13,28 @@ import android.view.View
 import android.view.ViewGroup
 import com.lookroulette.android.adapter.LooksAdapter
 import com.lookroulette.android.R
+import com.lookroulette.android.activities.MainActivity
 
 import com.lookroulette.android.content.LooksContent
 import com.lookroulette.android.content.LooksContent.LookItem
+import com.lookroulette.android.dialogs.LookRouletteProgressDialog
+import org.jetbrains.anko.support.v4.progressDialog
 
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
  * [LooksFragment.OnListFragmentInteractionListener] interface.
  */
-class LooksFragment : Fragment() {
+class LooksFragment : BaseFragment() {
 
     // TODO: Customize parameters
     private var columnCount = 1
 
     private var listener: OnListFragmentInteractionListener? = null
+
+    private var activity: MainActivity? = null
+
+    var pdialog: LookRouletteProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +42,11 @@ class LooksFragment : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+    }
+
+    override fun onAttach(context: Activity?) {
+        super.onAttach(context)
+        activity = context as MainActivity?
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -51,6 +63,14 @@ class LooksFragment : Fragment() {
                 adapter = LooksAdapter(LooksContent.ITEMS, listener)
             }
         }
+
+        /* Progress Dialog */
+        /*
+        pdialog = LookRouletteProgressDialog(activity, true)
+        pdialog?.setMessage("Testing looks")
+        pdialog?.show()
+        */
+
         return view
     }
 

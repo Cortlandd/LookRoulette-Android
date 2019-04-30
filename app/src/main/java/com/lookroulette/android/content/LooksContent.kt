@@ -29,6 +29,7 @@ object LooksContent {
         ITEMS.add(LookItem(Random().nextInt(10).toString(), "https://youtube.com", R.drawable.example1))
         ITEMS.add(LookItem(Random().nextInt(10).toString(), "https://youtube.com", R.drawable.example2))
         ITEMS.add(LookItem(Random().nextInt(10).toString(), "https://youtube.com", R.drawable.example3))
+        ITEMS.add(LookItem(Random().nextInt(10).toString(), "https://youtube.com", R.drawable.example3))
 
     }
 

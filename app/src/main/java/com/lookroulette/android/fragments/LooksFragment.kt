@@ -28,7 +28,7 @@ import org.jetbrains.anko.support.v4.progressDialog
 class LooksFragment : BaseFragment() {
 
     // TODO: Customize parameters
-    private var columnCount = 1
+    private var columnCount = 2
 
     private var listener: OnListFragmentInteractionListener? = null
 
@@ -42,11 +42,6 @@ class LooksFragment : BaseFragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
-    }
-
-    override fun onAttach(context: Activity?) {
-        super.onAttach(context)
-        activity = context as MainActivity?
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -76,11 +71,14 @@ class LooksFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
-        }
+        activity = context as MainActivity?
+        // Wherever this is implemented at is its context
+        // TODO: Improve onAttach for LooksFragment
+//        if (context is OnListFragmentInteractionListener) {
+//            listener = context
+//        } else {
+//            throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
+//        }
     }
 
     override fun onDetach() {
